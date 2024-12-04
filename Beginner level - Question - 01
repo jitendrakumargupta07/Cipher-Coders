@@ -1,0 +1,39 @@
+ANSWER 1
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str1, str2;
+    cin >> str1 >> str2;
+    cout << str1 + str2 << endl;
+    return 0;
+}
+
+
+ANSWER 2
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int g1, g2, g3, g4, g5;
+    cin >> g1 >> g2 >> g3 >> g4 >> g5;
+    double average = (g1 + g2 + g3 + g4 + g5) / 5.0;
+    cout << average << endl;
+    return 0;
+}
+
+
+ANSWER 3
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    cout << num * num << endl;
+    return 0;
+}
