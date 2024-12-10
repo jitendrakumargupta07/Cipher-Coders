@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <limits.h>
+using namespace std;
+
+pair<int, int> findMinMax(vector<int>& arr) {
+    int n = arr.size();
+    int minimum, maximum;
+
+    if (n == 0) return {INT_MAX, INT_MIN};
+    if (n == 1) return {arr[0], arr[0]};
+
+    if (n % 2 == 0) {
+        if (arr[0] < arr[1]) {
+            minimum = arr[0];
+            maximum = arr[1];
+        } else {
+            minimum = arr[1];
+            maximum = arr[0];
+        }
+    } else {
+        minimum = maximum = arr[0];
+    }
+
+    for (int i = (n % 2 == 0) ? 2 : 1; i < n - 1; i += 2) {
+        if (arr[i] < arr[i + 1]) {
+            minimum = min(minimum, arr[i]);
+            maximum = max(maximum, arr[i + 1]);
+        } else {
+            minimum = min(minimum, arr[i + 1]);
+            maximum = max(maximum, arr[i]);
+        }
+    }
+
+    return {minimum, maximum};
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) cin >> arr[i];
+
+    pair<int, int> result = findMinMax(arr);
+    cout << "Minimum element is: " << result.first << endl;
+    cout << "Maximum element is: " << result.second << endl;
+
+    return 0;
+}
